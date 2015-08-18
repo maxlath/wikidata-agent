@@ -25,7 +25,7 @@ to create a claim on an entity, just POST on the `/edit` endpoint with `entity`,
 curl -X POST http://localhost:4115/edit -d 'entity=Q4115189&property=P2002&statement=Zorg'
 ```
 
-* with [https://github.com/request/request|request]
+* with [request](https://github.com/request/request)
 
 ```
 request.post
