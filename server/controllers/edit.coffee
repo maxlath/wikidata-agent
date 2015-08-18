@@ -3,6 +3,7 @@ breq = require 'bluereq'
 _ = require '../lib/utils'
 wdk = require 'wikidata-sdk'
 errors_ = require '../lib/errors'
+archives_ = require '../lib/archives'
 
 { whitelistedProperties } = CONFIG
 
@@ -15,9 +16,6 @@ module.exports =
 
     _.log req.body, 'req.body'
     { entity, property, statement } = req.body
-    _.log entity, 'entity'
-    _.log property, 'property'
-    _.log statement, 'statement'
 
     unless wdk.isWikidataEntityId entity
       return errors_.e400 res, 'bad entity id'
@@ -38,12 +36,11 @@ module.exports =
     unless test statement
       return errors_.e400 res, 'invalid statement'
 
-    if _.log repeatingHistory(entity, property, statement), 'checking history'
-
+    if archives_.repeatingHistory entity, property, statement
       return errors_.e400 res, 'this statement has already been posted'
 
     createClaim entity, property, builder(statement)
-    .then updateArchives.bind(null, entity, property, statement)
+    .then archives_.updateArchives.bind(null, entity, property, statement)
     .then res.json.bind(res)
     .catch errors_.e500.bind(null, res)
 
@@ -59,13 +56,3 @@ builders =
 
 
 editableProperties = Object.keys whitelistedProperties
-
-archives = {}
-
-updateArchives = (entity, property, statement)->
-  archives[entity] or= {}
-  archives[entity][property] or= {}
-  archives[entity][property][statement] = true
-
-repeatingHistory = (entity, property, statement)->
-  archives[entity]?[property]?[statement]?
