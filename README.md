@@ -1,6 +1,6 @@
 # Wikidata Agent
 
-a one-person server to abstract the Wikidata API.
+a single-user server to abstract the Wikidata API
 
 **what does it mean**: you have one server running on your computer to which you do your requests and which will then handle the communication with Wikidata
 
