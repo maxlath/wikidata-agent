@@ -14,7 +14,7 @@ module.exports =
     unless req.body
       return errors_.e400 res, 'empty body'
 
-    _.log req.body, 'req.body'
+    # _.log req.body, 'req.body'
     { entity, property, statement } = req.body
 
     unless wdk.isWikidataEntityId entity
