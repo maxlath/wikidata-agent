@@ -4,6 +4,8 @@ _ = require '../lib/utils'
 wdk = require 'wikidata-sdk'
 errors_ = require '../lib/errors'
 
+{ whitelistedProperties } = CONFIG
+
 createClaim = require '../lib/create_claim'
 
 module.exports =
@@ -29,7 +31,7 @@ module.exports =
     unless statement?
       return errors_.e400 res, 'empty statement'
 
-    type = statements[property]
+    type = whitelistedProperties[property]
     test = tests[type]
     builder = builders[type]
 
@@ -45,9 +47,6 @@ module.exports =
     .then res.json.bind(res)
     .catch errors_.e500.bind(null, res)
 
-statements =
-  P2002: 'string' #twitter username
-
 tests =
   string: (str)-> /\w/.test str
   claim: wdk.isWikidataId
@@ -59,7 +58,7 @@ builders =
     "{\"entity-type\":\"item\",\"numeric-id\":#{id}}"
 
 
-editableProperties = Object.keys statements
+editableProperties = Object.keys whitelistedProperties
 
 archives = {}
 

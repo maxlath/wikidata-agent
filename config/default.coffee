@@ -4,3 +4,5 @@ module.exports =
   wikidata:
     username: 'customize'
     password: 'customize'
+  whitelistedProperties:
+    P2002: 'string' #twitter username
