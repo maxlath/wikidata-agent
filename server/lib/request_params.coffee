@@ -14,6 +14,6 @@ module.exports = (url, cookies, body)->
   # headers['accept'] = "text/plain, */*; q=0.01"
 
   return req =
-    url: _.log(url, 'url')
+    url: url
     body: body
     headers: headers
