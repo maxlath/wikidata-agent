@@ -8,3 +8,6 @@ module.exports = _.extend _, log_,
     query = qs.stringify query
     _.log query, 'built query'
     return "#{base}?#{query}"
+
+  extractCookies: (res)->
+    res.headers['set-cookie'].join(' ; ')
