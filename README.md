@@ -1,6 +1,11 @@
 # Wikidata Agent
 
+a one-person server to abstract the Wikidata API.
+
+**what does it mean**: you have one server running on your computer to which you do your requests and which will then handle the communication with Wikidata
+
 **motivations**:
+- being able to interact with Wikidata from a static web page (cf the original need: [authors tomorrow](https://github.com/inventaire/inventaire-authors-birthday#authors-tomorrow)), implying a more tolerant CORS policy
 - set your authentification once and then forget about it
 - interact with a minimalist interface tailored to your needs
 
