@@ -9,9 +9,6 @@ base = "https://www.wikidata.org/w/api.php"
 module.exports = (args...)->
   getToken()
   .then createClaim.bind(null, args)
-  .then _.Log('create claim')
-  .catch _.Error('create claim')
-
 
 createClaim = (args, authData)->
   [entity, property, value] = args
@@ -28,6 +25,7 @@ createClaim = (args, authData)->
     property: property
     snaktype: 'value'
 
+  _.log form, 'form'
 
   params =
     url: url
@@ -39,5 +37,6 @@ createClaim = (args, authData)->
 
   request.postAsync params
   .spread (httpResponse, body)->
-    return body
-  .catch _.Error('createClaim err')
+    body = JSON.parse body
+    if body.error? then throw body
+    else body
