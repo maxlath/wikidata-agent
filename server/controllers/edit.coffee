@@ -15,7 +15,7 @@ module.exports =
       return errors_.e400 res, 'empty body'
 
     # _.log req.body, 'req.body'
-    { entity, property, statement } = req.body
+    { entity, property, value } = req.body
 
     unless wdk.isWikidataEntityId entity
       return errors_.e400 res, 'bad entity id'
@@ -26,21 +26,21 @@ module.exports =
     unless property in editableProperties
       return errors_.e400 res, 'property isnt whitelisted yet'
 
-    unless statement?
-      return errors_.e400 res, 'empty statement'
+    unless value?
+      return errors_.e400 res, 'empty value'
 
     type = whitelistedProperties[property]
     test = tests[type]
     builder = builders[type]
 
-    unless test statement
-      return errors_.e400 res, 'invalid statement'
+    unless test value
+      return errors_.e400 res, 'invalid value'
 
-    if archives_.repeatingHistory entity, property, statement
-      return errors_.e400 res, 'this statement has already been posted'
+    if archives_.repeatingHistory entity, property, value
+      return errors_.e400 res, 'this value has already been posted'
 
-    createClaim entity, property, builder(statement)
-    .then archives_.updateArchives.bind(null, entity, property, statement)
+    createClaim entity, property, builder(value)
+    .then archives_.updateArchives.bind(null, entity, property, value)
     .then res.json.bind(res)
     .catch errors_.e500.bind(null, res)
 

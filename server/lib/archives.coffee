@@ -1,11 +1,11 @@
 archives = {}
 
 module.exports =
-  updateArchives: (entity, property, statement, data)->
+  updateArchives: (entity, property, value, data)->
     archives[entity] or= {}
     archives[entity][property] or= {}
-    archives[entity][property][statement] = true
+    archives[entity][property][value] = true
     return data
 
-  repeatingHistory:  (entity, property, statement)->
-    archives[entity]?[property]?[statement]?
+  repeatingHistory:  (entity, property, value)->
+    archives[entity]?[property]?[value]?
