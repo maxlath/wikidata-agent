@@ -1,5 +1,4 @@
 americano = require 'americano'
-bodyParser = require 'body-parser'
 
 cors = (req, res, next)->
   res.header 'Access-Control-Allow-Origin', '*'
