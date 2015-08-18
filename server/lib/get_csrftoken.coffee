@@ -4,7 +4,7 @@ _ = require './utils'
 requestParams = require './request_params'
 cb = require 'copy-paste'
 
-{ username, password } = CONFIG
+{ username, password } = CONFIG.wikidata
 
 
 login = ->
