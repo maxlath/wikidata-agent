@@ -1,5 +1,9 @@
 # Wikidata Agent
 
+**motivations**:
+- set your authentification once and then forget about it
+- interact with a minimalist interface tailored to your needs
+
 ## Installation
 
 ```
@@ -15,7 +19,8 @@ for each property, the key has to be a Wikidata property id (ex: `P2002`) and th
 
 ## How To
 
-### Create claim
+### Create a claim
+abstracting the [wbcreateclaim](https://www.wikidata.org/w/api.php?action=help&modules=wbcreateclaim) API
 
 to create a claim on an entity, just POST on the `/edit` endpoint with `entity`, `property`, and `statement` specified in the body
 
