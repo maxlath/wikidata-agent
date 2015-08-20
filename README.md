@@ -27,12 +27,12 @@ for each property, the key has to be a Wikidata property id (ex: `P2002`) and th
 ### Create a claim
 abstracting the [wbcreateclaim](https://www.wikidata.org/w/api.php?action=help&modules=wbcreateclaim) API
 
-to create a claim on an entity, just POST on the `/edit` endpoint with `entity`, `property`, and `statement` specified in the body
+to create a claim on an entity, just POST on the `/edit` endpoint with `entity`, `property`, and `value` specified in the body
 
 * with curl
 
 ```
-curl -X POST http://localhost:4115/edit -d 'entity=Q4115189&property=P2002&statement=Zorg'
+curl -X POST http://localhost:4115/edit -d 'entity=Q4115189&property=P2002&value=Zorg'
 ```
 
 * with [request](https://github.com/request/request)
@@ -43,6 +43,6 @@ request.post
   body:
     entity: 'Q4115189'
     property: 'P2002'
-    statement: 'Zorg'
+    value: 'Zorg'
 
 ```
