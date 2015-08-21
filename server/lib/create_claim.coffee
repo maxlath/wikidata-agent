@@ -1,8 +1,9 @@
+CONFIG = require 'config'
 _ = require './utils'
 request = require './request'
 qs = require 'querystring'
 
-getToken = require './get_csrftoken'
+getToken = require('wikidata-token')(CONFIG.wikidata)
 
 base = "https://www.wikidata.org/w/api.php"
 
