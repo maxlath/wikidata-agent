@@ -1,7 +1,6 @@
 CONFIG = require 'config'
 _ = require './utils'
 request = require './request'
-qs = require 'querystring'
 
 getToken = require('wikidata-token')(CONFIG.wikidata)
 
