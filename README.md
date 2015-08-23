@@ -6,12 +6,12 @@ a single-user server to abstract the Wikidata API
 
 **motivations**:
 - being able to interact with Wikidata from a static web page (cf the original need: [authors tomorrow](https://github.com/inventaire/inventaire-authors-birthday#authors-tomorrow)), implying a more tolerant CORS policy
-- set your authentification once and then forget about it
+- set your authentification once and then forget about it (using [wikidata-token](https://github.com/maxlath/wikidata-token))
 - interact with a minimalist interface tailored to your needs
 
 ## Installation
 
-```
+```bash
 git clone git@github.com:maxlath/wikidata-agent.git
 npm install
 npm start
@@ -31,13 +31,13 @@ to create a claim on an entity, just POST on the `/edit` endpoint with `entity`,
 
 * with curl
 
-```
+```bash
 curl -X POST http://localhost:4115/edit -d 'entity=Q4115189&property=P2002&value=Zorg'
 ```
 
 * with [request](https://github.com/request/request)
 
-```
+```coffeescript
 request.post
   url: 'http://localhost:4115/edit'
   body:
