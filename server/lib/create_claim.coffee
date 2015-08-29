@@ -1,6 +1,7 @@
 CONFIG = require 'config'
 _ = require './utils'
 request = require './request'
+userAgent = require './user_agent'
 
 getToken = require('wikidata-token')(CONFIG.wikidata)
 
@@ -32,6 +33,7 @@ createClaim = (args, authData)->
     form: form
     headers:
       'Cookie': cookie
+      'User-Agent': userAgent
 
   # _.log params, 'params'
 
