@@ -18,26 +18,26 @@ module.exports =
     { entity, property, value } = req.body
 
     unless wdk.isWikidataEntityId entity
-      return errors_.e400 res, 'bad entity id'
+      return errors_.e400 res, 'bad entity id', entity
 
     unless wdk.isWikidataPropertyId property
-      return errors_.e400 res, 'bad property id'
+      return errors_.e400 res, 'bad property id', property
 
     unless property in editableProperties
-      return errors_.e400 res, 'property isnt whitelisted yet'
+      return errors_.e400 res, 'property isnt whitelisted yet', property
 
     unless value?
-      return errors_.e400 res, 'empty value'
+      return errors_.e400 res, 'empty value', value
 
     type = whitelistedProperties[property]
     test = tests[type]
     builder = builders[type]
 
     unless test value
-      return errors_.e400 res, 'invalid value'
+      return errors_.e400 res, 'invalid value', value
 
     if archives_.repeatingHistory entity, property, value
-      return errors_.e400 res, 'this value has already been posted'
+      return errors_.e400 res, 'this value has already been posted', req.body
 
     createClaim entity, property, builder(value)
     .then archives_.updateArchives.bind(null, entity, property, value)

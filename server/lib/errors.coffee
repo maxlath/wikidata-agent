@@ -2,8 +2,9 @@ _ = require '../lib/utils'
 util = require 'util'
 
 module.exports =
-  e400: (res, message)->
-    _.warn message, 'e400'
+  e400: (res, message, ctx)->
+    _.warn [message, ctx], 'e400'
+
     res.status 400
     res.json
       status_verbose: message
