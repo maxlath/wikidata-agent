@@ -4,18 +4,17 @@ _ = require '../lib/utils'
 wdk = require 'wikidata-sdk'
 errors_ = require '../lib/errors'
 archives_ = require '../lib/archives'
-
-{ whitelistedProperties } = CONFIG
-
 createClaim = require '../lib/create_claim'
+{ whitelistedProperties, editableProperties, builders, tests } = require '../lib/helpers'
 
 module.exports =
   post: (req, res, next) ->
-    unless req.body
+    { body } = req
+    unless body?
       return errors_.e400 res, 'empty body'
 
-    # _.log req.body, 'req.body'
-    { entity, property, value } = req.body
+    # _.log body, 'body'
+    { entity, property, value } = body
 
     unless wdk.isWikidataEntityId entity
       return errors_.e400 res, 'bad entity id', entity
@@ -37,22 +36,9 @@ module.exports =
       return errors_.e400 res, 'invalid value', value
 
     if archives_.repeatingHistory entity, property, value
-      return errors_.e400 res, 'this value has already been posted', req.body
+      return errors_.e400 res, 'this value has already been posted', body
 
     createClaim entity, property, builder(value)
     .then archives_.updateArchives.bind(null, entity, property, value)
     .then res.json.bind(res)
     .catch errors_.e500.bind(null, res)
-
-tests =
-  string: (str)-> /\w/.test str
-  claim: wdk.isWikidataId
-
-builders =
-  string: (str)-> "\"#{str}\""
-  claim: (Q)->
-    id = wdk.getNumericId Q
-    "{\"entity-type\":\"item\",\"numeric-id\":#{id}}"
-
-
-editableProperties = Object.keys whitelistedProperties

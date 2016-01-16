@@ -7,11 +7,14 @@ module.exports =
 
     res.status 400
     res.json
-      status_verbose: message
+      status_verbose: message?[0..500]
 
 
   e500: (res, err)->
-    _.error util.inspect(err, false, null), 'e500'
+    { context, message, stack } = err
+    _.inspect err, 'err messages'
+    _.error err, 'e500'
     res.status 500
     res.json
-      status_verbose: err.message
+      context: context
+      status_verbose: message?[0..500]
