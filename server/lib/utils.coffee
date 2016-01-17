@@ -2,8 +2,11 @@ _ = require 'lodash'
 utils_ = require('inv-utils')(_)
 log_ = require 'inv-loggers'
 qs = require 'querystring'
-Promise = require 'bluebird'
 util = require 'util'
+Promise = require 'bluebird'
+Promise.config
+  warnings: true
+  longStackTraces: true
 
 
 module.exports = _.extend _, utils_, log_,
