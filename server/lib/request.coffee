@@ -23,11 +23,8 @@ post = (action, form, authData)->
     action: action
     format: 'json'
 
-
-  _.log form, 'form'
-  # _.inspect form, 'form'
-
-  form.data = JSON.stringify form.data
+  if form.data?
+    form.data = JSON.stringify form.data
 
   params =
     url: url
