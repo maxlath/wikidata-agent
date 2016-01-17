@@ -11,6 +11,7 @@ module.exports =
     P101: 'claim' #field of work
     P123: 'claim' #publisher
     P135: 'claim' #movement
+    P136: 'claim' #genre
     P155: 'claim' #follows
     P156: 'claim' #followed by
     P212: 'string' #isbn 13
