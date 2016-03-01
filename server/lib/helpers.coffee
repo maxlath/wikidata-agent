@@ -10,6 +10,16 @@ builders =
     id = wdk.getNumericId Q
     "{\"entity-type\":\"item\",\"numeric-id\":#{id}}"
 
+  time: (year)->
+    data =
+      time: "+#{year}-00-00T00:00:00Z",
+      timezone: 0,
+      before: 0,
+      after: 0,
+      precision: 9,
+      calendarmodel: "http://www.wikidata.org/entity/Q1985727"
+    return JSON.stringify data
+
 tests =
   string: (str)-> /\w/.test str
   claim: wdk.isWikidataId
