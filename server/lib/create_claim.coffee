@@ -6,3 +6,4 @@ module.exports = (entity, property, value)->
     entity: entity
     property: property
     snaktype: 'value'
+    assert: 'user'

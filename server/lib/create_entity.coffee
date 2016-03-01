@@ -8,6 +8,7 @@ module.exports = (data)->
   { id, labels, descriptions, claims, summary } = data
   params =
     summary: summary
+    assert: 'user'
     data:
       labels: formatValues labels
       descriptions: formatValues descriptions
