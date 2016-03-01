@@ -2,7 +2,7 @@
   "name": "wikidata-agent",
   "version": "0.1.1",
   "scripts": {
-    "start": "coffee wikidata-agent.coffee",
+    "start": "./node_modules/coffee-script/bin/coffee wikidata-agent.coffee",
     "superstart": "supervisor -w . wikidata-agent.coffee",
     "daemon-start": "aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.coffee wikidata-agent.coffee",
     "reload": "touch reload"
@@ -11,6 +11,7 @@
     "americano": "0.4.2",
     "bluebird": "^3.1.1",
     "bluereq": "^1.0.0",
+    "coffee-script": "^1.10.0",
     "config": "^1.15.0",
     "inv-loggers": "^3.0.1",
     "inv-utils": "^2.0.1",
