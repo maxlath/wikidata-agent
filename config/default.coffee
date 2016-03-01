@@ -1,5 +1,5 @@
 module.exports =
-  host: 'localhost'
+  host: '0.0.0.0'
   port: 4115
   wikidata:
     base: "https://www.wikidata.org/w/api.php"
