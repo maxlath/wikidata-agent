@@ -13,7 +13,7 @@ module.exports =
     unless body?
       return errors_.e400 res, 'empty body'
 
-    # _.log body, 'body'
+    _.log body, 'body'
     { entity, property, value } = body
 
     unless wdk.isWikidataEntityId entity
