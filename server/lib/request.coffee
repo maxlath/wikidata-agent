@@ -4,7 +4,8 @@ CONFIG = require 'config'
 getToken = require('wikidata-token')(wikidata)
 
 Promise = require 'bluebird'
-request = Promise.promisifyAll require('request')
+# cf http://stackoverflow.com/q/33565210/3324977 for the multiArgs parameter
+request = Promise.promisifyAll require('request'), { multiArgs: true }
 userAgent = require './user_agent'
 _ = require '../lib/utils'
 
@@ -34,7 +35,10 @@ post = (action, form, authData)->
       'User-Agent': userAgent
 
   request.postAsync params
-  .spread (httpResponse, body)->
-    body = JSON.parse body
-    if body.error? then throw body
+  .spread (res, body)->
+    body = JSON.parse res.body
+    if body.error?
+      err = new Error('post err')
+      _.extend err, body
+      throw err
     else body
