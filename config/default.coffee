@@ -9,6 +9,7 @@ module.exports =
     P31: 'claim' #instance of
     P50: 'claim' #author
     P101: 'claim' #field of work
+    P103: 'claim' #native language
     P123: 'claim' #publisher
     P135: 'claim' #movement
     P136: 'claim' #genre
@@ -22,9 +23,11 @@ module.exports =
     P648: 'string' #open library id
     P856: 'string' #official website
     P921: 'claim' #main subject
+    P953: 'string' #full text available at
     P957: 'string' #isbn 10
     P1104: 'quantity' #number of pages
     P1476: 'monolingualtext' #title
     P1680: 'monolingualtext' #subtitle
     P2002: 'string' #twitter username
+    P2034: 'string' #project gutenberg ebook ID
     P2093: 'string' #short author name
