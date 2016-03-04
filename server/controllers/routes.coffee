@@ -11,3 +11,7 @@ module.exports =
 
   'edit':
     post: edit.post
+
+  'ping':
+    get: (req, res, next)->
+      res.json { ok: true, message: 'hello! how do you do?' }
