@@ -35,14 +35,54 @@ to create a claim on an entity, just POST on the `/edit` endpoint with `entity`,
 curl -X POST http://localhost:4115/edit -d 'entity=Q4115189&property=P2002&value=Zorg'
 ```
 
-* with [request](https://github.com/request/request)
+* with a lib like [request](https://github.com/request/request)
 
-```coffeescript
-request.post
-  url: 'http://localhost:4115/edit'
-  body:
-    entity: 'Q4115189'
-    property: 'P2002'
+```javascript
+request.post({
+  url: 'http://localhost:4115/edit',
+  body: {
+    entity: 'Q4115189',
+    property: 'P2002',
     value: 'Zorg'
+  }
+})
+```
 
+or with a [reference URL](https://www.wikidata.org/wiki/Property:P854)
+
+```javascript
+request.post({
+  url: 'http://localhost:4115/edit',
+  body: {
+    entity: 'Q4115189',
+    property: 'P2848',
+    value: 'Q1543615',
+    ref: 'http://example.org/your-reference-url'
+  }
+})
+```
+
+### Create an entity
+
+```javascript
+request.post({
+  url: 'http://localhost:4115/create',
+  body: {
+    labels: {
+      en: 'a label',
+      fr: 'un label',
+      de: 'ein Label'
+    },
+    descriptions: {
+      en: 'a description',
+      fr: 'une description'
+    }
+    claims: {
+      P31: 'Q571',
+      P50: 'Q535'
+    }
+    summary: 'importing data from blablabla',
+    key: "a hash of those data or some unique id specific to this set of data to make sure this entity isn't added twice"
+  }
+})
 ```
