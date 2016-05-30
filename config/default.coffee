@@ -31,3 +31,5 @@ module.exports =
     P2002: 'string' #twitter username
     P2034: 'string' #project gutenberg ebook ID
     P2093: 'string' #short author name
+    P2770: 'claim' #source of income
+    P2848: 'claim' #wifi
