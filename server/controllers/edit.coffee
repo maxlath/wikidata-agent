@@ -14,7 +14,7 @@ module.exports =
       return errors_.e400 res, 'empty body'
 
     _.log body, 'body'
-    { entity, property, value } = body
+    { entity, property, value, ref } = body
 
     unless wdk.isWikidataEntityId entity
       return errors_.e400 res, 'bad entity id', entity
@@ -38,7 +38,10 @@ module.exports =
     if archives_.repeatingHistory entity, property, value
       return errors_.e400 res, 'this value has already been posted', body
 
-    createClaim entity, property, builder(value)
+    if ref? and not /^http/.test ref
+      return errors_.e400 res, 'invalid reference url', body
+
+    createClaim entity, property, builder(value), ref
     .then archives_.updateArchives.bind(null, entity, property, value)
     .then res.json.bind(res)
     .catch errors_.e500.bind(null, res)
