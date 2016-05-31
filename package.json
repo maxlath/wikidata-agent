@@ -24,5 +24,24 @@
   },
   "devDependencies": {
     "supervisor": "^0.9.1"
-  }
+  },
+  "description": "a single-user server to abstract the Wikidata API",
+  "main": "wikidata-agent.coffee",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxlath/wikidata-agent.git"
+  },
+  "keywords": [
+    "wikidata",
+    "agent",
+    "API",
+    "OAuth",
+    "simple"
+  ],
+  "author": "maxlath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxlath/wikidata-agent/issues"
+  },
+  "homepage": "https://github.com/maxlath/wikidata-agent#readme"
 }
