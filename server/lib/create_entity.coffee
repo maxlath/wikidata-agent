@@ -5,7 +5,7 @@ wdk = require 'wikidata-sdk'
 
 
 module.exports = (data)->
-  { id, labels, descriptions, claims, summary } = data
+  { labels, descriptions, claims, summary } = data
   params =
     summary: summary
     assert: 'user'
