@@ -11,16 +11,12 @@ a single-user server to abstract the Wikidata API
 
 ## Installation
 
-```bash
+```sh
 git clone git@github.com:maxlath/wikidata-agent.git
 npm install
+# you should now be prompt for your Wikidata username and password
 npm start
 ```
-
-then, create a `./config/local.coffee` file (or you can simply edit the existing `./config/default.coffee` if you don't intend to push your changes) and add your Wikidata `username` and `password`.
-
-in the same config file, edit the list of `whitelistedProperties` to fit your need:
-for each property, the key has to be a Wikidata property id (ex: `P2002`) and the value either `claim` or `string`: this will be used to make a basic check of your input.
 
 ## How To
 
@@ -86,3 +82,6 @@ request.post({
   }
 })
 ```
+
+### Add whitelisted properties
+Existing whitelisted properties are simply the properties I came to need, but you can add your to `./config/default.coffee` `whitelistedProperties` map: for each property, the key has to be a Wikidata property id (ex: `P2002`) and the value either `claim` or `string`: this will be used to make a basic check of your input.

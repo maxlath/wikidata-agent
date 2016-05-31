@@ -5,7 +5,8 @@
     "start": "./node_modules/coffee-script/bin/coffee wikidata-agent.coffee",
     "superstart": "supervisor -w . wikidata-agent.coffee",
     "daemon-start": "aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.coffee wikidata-agent.coffee",
-    "reload": "touch reload"
+    "reload": "touch reload",
+    "postinstall": "./node_modules/coffee-script/bin/coffee ./scripts/postinstall"
   },
   "dependencies": {
     "americano": "^0.4.4",
@@ -16,6 +17,7 @@
     "inv-loggers": "^3.1.1",
     "inv-utils": "^2.0.1",
     "lodash": "^4.5.1",
+    "prompt": "^1.0.0",
     "request": "^2.69.0",
     "wikidata-sdk": "^2.3.0",
     "wikidata-token": "^1.0.5"
