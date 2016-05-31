@@ -23,19 +23,19 @@ npm start
 ### Create a claim
 abstracting the [wbcreateclaim](https://www.wikidata.org/w/api.php?action=help&modules=wbcreateclaim) API
 
-to create a claim on an entity, just POST on the `/edit` endpoint with `entity`, `property`, and `value` specified in the body
+to create a claim on an entity, just POST on the `/claim` endpoint with `entity`, `property`, and `value` specified in the body
 
 * with curl
 
 ```bash
-curl -X POST http://localhost:4115/edit -d 'entity=Q4115189&property=P2002&value=Zorg'
+curl -X POST http://localhost:4115/claim -d 'entity=Q4115189&property=P2002&value=Zorg'
 ```
 
 * with a lib like [request](https://github.com/request/request)
 
 ```javascript
 request.post({
-  url: 'http://localhost:4115/edit',
+  url: 'http://localhost:4115/claim',
   body: {
     entity: 'Q4115189',
     property: 'P2002',
@@ -48,7 +48,7 @@ or with a [reference URL](https://www.wikidata.org/wiki/Property:P854)
 
 ```javascript
 request.post({
-  url: 'http://localhost:4115/edit',
+  url: 'http://localhost:4115/claim',
   body: {
     entity: 'Q4115189',
     property: 'P2848',
@@ -62,7 +62,7 @@ request.post({
 
 ```javascript
 request.post({
-  url: 'http://localhost:4115/create',
+  url: 'http://localhost:4115/entity',
   body: {
     labels: {
       en: 'a label',

@@ -1,16 +1,16 @@
 index = require './index'
-create = require './create'
-edit = require './edit'
+entity = require './entity'
+claim = require './claim'
 
 module.exports =
   '':
     get: index.get
 
-  'create':
-    post: create.post
+  'entity':
+    post: entity.post
 
-  'edit':
-    post: edit.post
+  'claim':
+    post: claim.post
 
   'ping':
     get: (req, res, next)->
