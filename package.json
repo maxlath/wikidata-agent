@@ -6,7 +6,7 @@
     "superstart": "supervisor -w . wikidata-agent.coffee",
     "daemon-start": "aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.coffee wikidata-agent.coffee",
     "reload": "touch reload",
-    "postinstall": "./node_modules/coffee-script/bin/coffee ./scripts/postinstall"
+    "postinstall": "./scripts/postinstall"
   },
   "dependencies": {
     "americano": "^0.4.4",
