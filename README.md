@@ -1,6 +1,8 @@
 # Wikidata Agent
 
-a single-user server to abstract the Wikidata API
+![agent](http://vignette4.wikia.nocookie.net/matrix/images/a/ab/Original_Agents.jpg)
+
+A single-user server to communicate with the Wikidata API in a simple, minimalist way.
 
 **what does it mean**: you have one server running on your computer to which you do your requests and which will then handle the communication with Wikidata
 

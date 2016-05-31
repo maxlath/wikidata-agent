@@ -25,7 +25,7 @@
   "devDependencies": {
     "supervisor": "^0.9.1"
   },
-  "description": "a single-user server to abstract the Wikidata API",
+  "description": "A single-user server to communicate with the Wikidata API in a simple, minimalist way.",
   "main": "wikidata-agent.coffee",
   "repository": {
     "type": "git",
