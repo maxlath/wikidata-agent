@@ -14,7 +14,7 @@ A single-user server to communicate with the Wikidata API in a simple, minimalis
 ## Installation
 
 ```sh
-git clone git@github.com:maxlath/wikidata-agent.git
+git clone https://github.com/maxlath/wikidata-agent.git
 npm install
 # you should now be prompt for your Wikidata username and password
 npm start
