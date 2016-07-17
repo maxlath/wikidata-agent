@@ -46,7 +46,7 @@ request.post({
 })
 ```
 
-or with a [reference URL](https://www.wikidata.org/wiki/Property:P854)
+#### With a [reference URL](https://www.wikidata.org/wiki/Property:P854)
 
 ```javascript
 request.post({
@@ -58,6 +58,24 @@ request.post({
     ref: 'http://example.org/your-reference-url'
   }
 })
+```
+
+#### With a reference to the Wikipedia edition it is [imported from](https://www.wikidata.org/wiki/Property:P143) (see [Wikipedia editions list](/maxlath/wikidata-agent/blob/master/server/lib/reference_sources.coffee))
+
+```javascript
+request.post({
+  url: 'http://localhost:4115/claim',
+  body: {
+    entity: 'Q4115189',
+    property: 'P2848',
+    value: 'Q1543615',
+    ref: 'Q328' # English Wikipedia
+  }
+})
+```
+or
+```sh
+curl -X POST http://localhost:4115/claim -d 'entity=Q4115189&property=P2848&value=Q1543615&ref=Q328'
 ```
 
 ### Create an entity

@@ -6,6 +6,7 @@ errors_ = require '../lib/errors'
 archives_ = require '../lib/archives'
 createClaim = require '../lib/create_claim'
 { whitelistedProperties, editableProperties, builders, tests } = require '../lib/helpers'
+referenceSources = require '../lib/reference_sources'
 
 module.exports =
   post: (req, res, next) ->
@@ -30,6 +31,10 @@ module.exports =
 
     type = whitelistedProperties[property]
     test = tests[type]
+
+    if type is 'string' and tests.claim value
+      return errors_.e400 res, 'expected a string value, got a Wikidata id', value
+
     builder = builders[type]
 
     unless test value
@@ -38,8 +43,8 @@ module.exports =
     if archives_.repeatingHistory entity, property, value
       return errors_.e400 res, 'this value has already been posted', body
 
-    if ref? and not /^http/.test ref
-      return errors_.e400 res, 'invalid reference url', body
+    if ref? and not /^http/.test(ref) and ref not in referenceSources
+      return errors_.e400 res, 'invalid reference', body
 
     createClaim entity, property, builder(value), ref
     .then archives_.updateArchives.bind(null, entity, property, value)

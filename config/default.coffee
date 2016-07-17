@@ -23,6 +23,7 @@ module.exports =
     P364: 'claim' #original language of work
     P577: 'time' #publication date
     P648: 'string' #open library id
+    P737: 'claim' #influenced by
     P856: 'string' #official website
     P921: 'claim' #main subject
     P953: 'string' #full text available at
