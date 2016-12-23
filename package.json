@@ -32,7 +32,7 @@
   "main": "wikidata-agent.coffee",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxlath/wikidata-agent.git"
+    "url": "https://github.com/maxlath/wikidata-agent.git"
   },
   "keywords": [
     "wikidata",
