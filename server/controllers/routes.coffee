@@ -1,6 +1,7 @@
 index = require './index'
 entity = require './entity'
 claim = require './claim'
+label = require './label'
 
 module.exports =
   '':
@@ -11,6 +12,9 @@ module.exports =
 
   'claim':
     post: claim.post
+
+  'label':
+    post: label.post
 
   'ping':
     get: (req, res, next)->
