@@ -15,6 +15,7 @@ module.exports =
     P136: 'claim' #genre
     P137: 'claim' #operator
     P138: 'claim' #name after
+    P179: 'claim' #series
     P155: 'claim' #follows
     P156: 'claim' #followed by
     P212: 'string' #isbn 13
@@ -23,6 +24,7 @@ module.exports =
     P364: 'claim' #original language of work
     P577: 'time' #publication date
     P648: 'string' #open library id
+    P674: 'claim' #characters
     P737: 'claim' #influenced by
     P856: 'string' #official website
     P921: 'claim' #main subject
@@ -36,3 +38,4 @@ module.exports =
     P2093: 'string' #short author name
     P2770: 'claim' #source of income
     P2848: 'claim' #wifi
+    P3035: 'string' #ISBN publisher prefix
