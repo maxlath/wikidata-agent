@@ -11,6 +11,23 @@ A single-user server to communicate with the Wikidata API in a simple, minimalis
 - set your authentification once and then forget about it (using [wikidata-token](https://github.com/maxlath/wikidata-token))
 - interact with a minimalist interface tailored to your needs
 
+## Summary
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Installation](#installation)
+- [How To](#how-to)
+  - [Create a claim](#create-a-claim)
+    - [With a reference URL](#with-a-reference-url)
+    - [With a reference to the Wikipedia edition it is imported from (see Wikipedia editions list)](#with-a-reference-to-the-wikipedia-edition-it-is-imported-from-see-wikipedia-editions-list)
+  - [Set a label](#set-a-label)
+  - [Create an entity](#create-an-entity)
+  - [Add whitelisted properties](#add-whitelisted-properties)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Installation
 
 ```sh
