@@ -3,12 +3,12 @@ archives = require "../../#{archivesPath}"
 fs = require 'fs'
 
 module.exports =
-  updateArchives: (entity, property, value, data)->
+  updateArchives: (entity, property, value)->
     archives[entity] or= {}
     archives[entity][property] or= {}
     archives[entity][property][value] = true
     updateFile()
-    return data
+    return
 
   repeatingHistory:  (entity, property, value)->
     archives[entity]?[property]?[value]?

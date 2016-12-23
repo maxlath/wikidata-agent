@@ -47,6 +47,6 @@ module.exports =
       return errors_.e400 res, 'invalid reference', body
 
     createClaim entity, property, builder(value), ref
-    .then archives_.updateArchives.bind(null, entity, property, value)
+    .tap archives_.updateArchives.bind(null, entity, property, value)
     .then res.json.bind(res)
     .catch errors_.e500.bind(null, res)
