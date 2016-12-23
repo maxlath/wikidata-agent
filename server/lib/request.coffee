@@ -34,6 +34,7 @@ post = (action, form, authData)->
       'Cookie': cookie
       'User-Agent': userAgent
 
+  _.log params, 'post request params'
   request.postAsync params
   .spread (res, body)->
     body = JSON.parse res.body
