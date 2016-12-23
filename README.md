@@ -21,7 +21,7 @@ A single-user server to communicate with the Wikidata API in a simple, minimalis
 - [How To](#how-to)
   - [Create a claim](#create-a-claim)
     - [With a reference URL](#with-a-reference-url)
-    - [With a reference to the Wikipedia edition it is imported from (see Wikipedia editions list)](#with-a-reference-to-the-wikipedia-edition-it-is-imported-from-see-wikipedia-editions-list)
+    - [With a reference to the Wikipedia edition it is imported from](#with-a-reference-to-the-wikipedia-edition-it-is-imported-from)
   - [Set a label](#set-a-label)
   - [Create an entity](#create-an-entity)
   - [Add whitelisted properties](#add-whitelisted-properties)
@@ -33,7 +33,7 @@ A single-user server to communicate with the Wikidata API in a simple, minimalis
 ```sh
 git clone https://github.com/maxlath/wikidata-agent.git
 npm install
-# you should now be prompt for your Wikidata username and password
+# you should now get a command prompt requesting your Wikidata username and password
 npm start
 ```
 
@@ -77,7 +77,8 @@ request.post({
 })
 ```
 
-#### With a reference to the Wikipedia edition it is [imported from](https://www.wikidata.org/wiki/Property:P143) (see [Wikipedia editions list](/maxlath/wikidata-agent/blob/master/server/lib/reference_sources.coffee))
+#### With a reference to the Wikipedia edition it is [imported from](https://www.wikidata.org/wiki/Property:P143)
+*(see [Wikipedia editions list](/maxlath/wikidata-agent/blob/master/server/lib/reference_sources.coffee))*
 
 ```javascript
 request.post({
