@@ -11,7 +11,7 @@ A single-user server to communicate with the Wikidata API in a simple, minimalis
 - set your authentification once and then forget about it (using [wikidata-token](https://github.com/maxlath/wikidata-token))
 - interact with a minimalist interface tailored to your needs
 
-## Installation
+## Installation
 
 ```sh
 git clone https://github.com/maxlath/wikidata-agent.git
@@ -76,6 +76,24 @@ request.post({
 or
 ```sh
 curl -X POST http://localhost:4115/claim -d 'entity=Q4115189&property=P2848&value=Q1543615&ref=Q328'
+```
+
+### Set a label
+
+```javascript
+request.post({
+  url: 'http://localhost:4115/label',
+  body: {
+    entity: 'Q3938',
+    language: 'fr',
+    label: 'blabla',
+  }
+})
+```
+or
+
+```sh
+curl -X POST http://localhost:4115/label -d 'entity=Q3938&language=fr&label=blabla'
 ```
 
 ### Create an entity
