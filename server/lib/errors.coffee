@@ -1,20 +1,29 @@
 _ = require '../lib/utils'
 util = require 'util'
 
-module.exports =
-  e400: (res, message, ctx)->
-    _.warn [message, ctx], 'e400'
-
-    res.status 400
-    res.json
-      status_verbose: message?[0..500]
-
+module.exports = error_ =
+  e400: (res, message, context)->
+    err = new Error message
+    err.statusCode = 400
+    err.context = context
+    error_.handler res, err
 
   e500: (res, err)->
+    err.statusCode = 500
+    error_.handler res, err
+
+  new: (message, statusCode, context...)->
+    err = new Error message
+    err.statusCode = statusCode
+    err.context = _.flatten context
+    return err
+
+  handler: (res, err)->
     { context, message, stack } = err
-    _.inspect err, 'err messages'
-    _.error err, 'e500'
-    res.status 500
+    statusCode = err.statusCode or 500
+    if statusCode < 500 then _.warn [message, context], statusCode
+    else _.error err, "error #{statusCode}"
+    res.status statusCode
     res.json
-      context: context
       status_verbose: message?[0..500]
+      context: context

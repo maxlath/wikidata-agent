@@ -10,6 +10,12 @@ userAgent = require './user_agent'
 _ = require '../lib/utils'
 
 module.exports =
+  # Assumes we are getting JSON
+  get: (url)->
+    request.getAsync(url)
+    # request return an array
+    .spread (res, body)-> JSON.parse body
+
   post: (action, form)->
     # Return a Bluebird promise
     Promise.resolve getToken()

@@ -2,18 +2,30 @@
 _ = require './utils'
 referenceSources = require './reference_sources'
 wdk = require 'wikidata-sdk'
+checkClaimExistance = require './check_claim_existance'
+{ singleClaimBuilders:builders } = require '../lib/builders'
+findPropertyType = require './find_property_type'
+errors_ = require '../lib/errors'
 
 module.exports = (entity, property, value, ref)->
-  post 'wbcreateclaim',
-    value: value
-    entity: entity
-    property: property
-    snaktype: 'value'
-    assert: 'user'
-  .then _.Log('wbcreateclaim body')
-  .then (body)->
-    if ref and body.claim?.id? then postRef body.claim.id, ref
-    else _.warn body, 'not posting a reference'
+  checkClaimExistance entity, property, value
+  .then (valueAlreadyExists)->
+    if valueAlreadyExists
+      throw errors_.new 'claim already exist', 400, { entity, property, value }
+
+    type = findPropertyType property
+    builder = builders[type]
+
+    post 'wbcreateclaim',
+      value: builder value
+      entity: entity
+      property: property
+      snaktype: 'value'
+      assert: 'user'
+    .then _.Log('wbcreateclaim body')
+    .then (body)->
+      if ref and body.claim?.id? then postRef body.claim.id, ref
+      else _.warn body, 'not posting a reference'
 
 postRef = (guid, ref)->
   _.log [guid, ref], 'posting a reference'
