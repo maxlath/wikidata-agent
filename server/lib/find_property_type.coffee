@@ -17,7 +17,7 @@ dataTypes =
   # To add support:
   # - attribute them one of the existing datatypes (string, claims, time, or
   #   quantity)
-  # - add a corresponding test and build function in server/lib/helpers.coffee
+  # - add a corresponding test and build function in server/lib/tests.coffee and server/lib/builders.coffee
 
 module.exports = (propertyId)->
   propData = properties[propertyId]

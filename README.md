@@ -24,7 +24,6 @@ A single-user server to communicate with the Wikidata API in a simple, minimalis
     - [With a reference to the Wikipedia edition it is imported from](#with-a-reference-to-the-wikipedia-edition-it-is-imported-from)
   - [Set a label](#set-a-label)
   - [Create an entity](#create-an-entity)
-  - [Add whitelisted properties](#add-whitelisted-properties)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -139,5 +138,23 @@ request.post({
 })
 ```
 
-### Add whitelisted properties
-Existing whitelisted properties are simply the properties I came to need, but you can add your to `./config/default.coffee` `whitelistedProperties` map: for each property, the key has to be a Wikidata property id (ex: `P2002`) and the value either `claim` or `string`: this will be used to make a basic check of your input.
+### Supported properties
+For the moment, only properties with the following data types are supported:
+* ExternalId
+* String
+* WikibaseItem
+* Time
+* Monolingualtext
+* Quantity
+* WikibaseProperty
+
+Not Supported yet:
+* Math
+* GlobeCoordinate
+* CommonsMedia
+* Url
+
+To add support:
+* fix [find_property_type](https://github.com/maxlath/wikidata-agent/blob/master/server/lib/find_property_type.coffee) by attributing them one of the existing primary data types (string, claims, time, or
+  quantity)
+* add corresponding functions in [tests](https://github.com/maxlath/wikidata-agent/blob/master/server/lib/tests.coffee) and [builders](https://github.com/maxlath/wikidata-agent/blob/master/server/lib/builders.coffee)
