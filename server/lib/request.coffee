@@ -9,14 +9,13 @@ request = Promise.promisifyAll require('request'), { multiArgs: true }
 userAgent = require './user_agent'
 _ = require '../lib/utils'
 
-
 module.exports =
   post: (action, form)->
-    getToken()
+    # Return a Bluebird promise
+    Promise.resolve getToken()
     .then post.bind(null, action, form)
 
 post = (action, form, authData)->
-
   { cookie, token } = authData
   form.token = token
 
