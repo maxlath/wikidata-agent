@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+echo "Updating properties..."
+wd props --type > ./data/properties.json
+echo "Done updating properties"

@@ -1,6 +1,20 @@
 #!/usr/bin/env sh
 
-mkdir -p ./data
-echo '{}' > ./data/archives.json
+# Init activity archive if not already existing
+if [ ! -f data/archives.json ]
+then
+  mkdir -p ./data
+  echo '{}' > ./data/archives.json
+fi
 
-./node_modules/coffee-script/bin/coffee ./scripts/init_local_config.coffee
+# Init activity archive if not already existing
+if [ ! -f config/local.coffee ]
+then
+  ./node_modules/coffee-script/bin/coffee ./scripts/init_local_config.coffee
+fi
+
+# Init properties list if not already existing
+if [ ! -f data/properties.json ]
+then
+  ./scripts/update_properties
+fi

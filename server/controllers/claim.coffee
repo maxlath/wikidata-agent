@@ -5,8 +5,10 @@ wdk = require 'wikidata-sdk'
 errors_ = require '../lib/errors'
 archives_ = require '../lib/archives'
 createClaim = require '../lib/create_claim'
-{ whitelistedProperties, editableProperties, builders, tests } = require '../lib/helpers'
+tests = require '../lib/tests'
+{ singleClaimBuilders:builders } = require '../lib/builders'
 referenceSources = require '../lib/reference_sources'
+findPropertyType = require '../lib/find_property_type'
 
 module.exports =
   post: (req, res, next) ->
@@ -23,13 +25,10 @@ module.exports =
     unless wdk.isWikidataPropertyId property
       return errors_.e400 res, 'bad property id', property
 
-    unless property in editableProperties
-      return errors_.e400 res, 'property isnt whitelisted yet', property
-
     unless value?
       return errors_.e400 res, 'empty value', value
 
-    type = whitelistedProperties[property]
+    type = findPropertyType property
     test = tests[type]
 
     if type is 'string' and tests.claim value
