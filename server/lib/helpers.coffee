@@ -1,5 +1,5 @@
 CONFIG = require 'config'
-{ whitelistedProperties } = CONFIG
+{ whitelistedProperties } = CONFIG
 editableProperties = Object.keys whitelistedProperties
 wdk = require 'wikidata-sdk'
 _ = require './utils'
@@ -29,8 +29,4 @@ tests =
     return _.isNonEmptyString(text) and _.isNonEmptyString(language)
   quantity: (num)-> _.isNumber num
 
-module.exports =
-  whitelistedProperties:  whitelistedProperties 
-  editableProperties:  editableProperties 
-  builders:  builders 
-  tests:  tests 
+module.exports = { whitelistedProperties, editableProperties, builders, tests }
