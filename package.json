@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "./node_modules/coffee-script/bin/coffee wikidata-agent.coffee",
-    "superstart": "supervisor -w . wikidata-agent.coffee",
-    "daemon-start": "aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.coffee wikidata-agent.coffee",
-    "reload": "touch reload",
+    "watch": "supervisor -w *.coffee,server,config wikidata-agent.coffee",
     "postinstall": "./scripts/postinstall",
     "update-toc": "doctoc README.md"
   },
