@@ -24,6 +24,12 @@ A single-user server to communicate with the Wikidata API in a simple, minimalis
     - [With a reference to the Wikipedia edition it is imported from](#with-a-reference-to-the-wikipedia-edition-it-is-imported-from)
   - [Set a label](#set-a-label)
   - [Create an entity](#create-an-entity)
+  - [Supported properties](#supported-properties)
+  - [See Also](#see-also)
+    - [wikidata-cli](#wikidata-cli)
+    - [wikidata-sdk](#wikidata-sdk)
+    - [wikidata-filter](#wikidata-filter)
+    - [wikidata-taxonomy](#wikidata-taxonomy)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -158,3 +164,18 @@ To add support:
 * fix [find_property_type](https://github.com/maxlath/wikidata-agent/blob/master/server/lib/find_property_type.coffee) by attributing them one of the existing primary data types (string, claims, time, or
   quantity)
 * add corresponding functions in [tests](https://github.com/maxlath/wikidata-agent/blob/master/server/lib/tests.coffee) and [builders](https://github.com/maxlath/wikidata-agent/blob/master/server/lib/builders.coffee)
+
+
+### See Also
+
+#### [wikidata-cli](https://www.npmjs.com/package/wikidata-cli)
+the command-line interface to Wikidata
+
+#### [wikidata-sdk](https://www.npmjs.com/package/wikidata-sdk)
+a javascript tool suite to query and work with wikidata data, heavily used by wikidata-cli
+
+#### [wikidata-filter](https://npmjs.com/package/wikidata-filter)
+a command-line tool to filter a Wikidata dump by claim
+
+#### [wikidata-taxonomy](https://github.com/nichtich/wikidata-taxonomy)
+command-line tool to extract taxonomies from Wikidata
