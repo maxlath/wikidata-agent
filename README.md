@@ -1,5 +1,7 @@
 # Wikidata Agent
 
+:warning: this project's core is progressively being transfered into [wikidata-edit](https://github.com/maxlath/wikidata-edit) and [wikidata-cli](https://github.com/maxlath/wikidata-cli), and it's gonna be even more awesome there
+
 ![agent](http://vignette4.wikia.nocookie.net/matrix/images/a/ab/Original_Agents.jpg)
 
 A single-user server to communicate with the Wikidata API in a simple, minimalist way.
@@ -17,19 +19,23 @@ A single-user server to communicate with the Wikidata API in a simple, minimalis
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Installation](#installation)
-- [How To](#how-to)
-  - [Create a claim](#create-a-claim)
-    - [With a reference URL](#with-a-reference-url)
-    - [With a reference to the Wikipedia edition it is imported from](#with-a-reference-to-the-wikipedia-edition-it-is-imported-from)
-  - [Set a label](#set-a-label)
-  - [Create an entity](#create-an-entity)
-  - [Supported properties](#supported-properties)
+  - [Installation](#installation)
+  - [How To](#how-to)
+    - [Create a claim](#create-a-claim)
+      - [With a reference URL](#with-a-reference-url)
+      - [With a reference to the Wikipedia edition it is imported from](#with-a-reference-to-the-wikipedia-edition-it-is-imported-from)
+    - [Set a label](#set-a-label)
+    - [Create an entity](#create-an-entity)
+    - [Supported properties](#supported-properties)
+  - [Donate](#donate)
   - [See Also](#see-also)
-    - [wikidata-cli](#wikidata-cli)
     - [wikidata-sdk](#wikidata-sdk)
+    - [wikidata-cli](#wikidata-cli)
     - [wikidata-filter](#wikidata-filter)
+    - [wikidata-subset-search-engine Tools to setup an ElasticSearch instance fed with subsets of Wikidata](#wikidata-subset-search-engine-tools-to-setup-an-elasticsearch-instance-fed-with-subsets-of-wikidata)
     - [wikidata-taxonomy](#wikidata-taxonomy)
+    - [Other Wikidata external tools](#other-wikidata-external-tools)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -167,17 +173,27 @@ To add support:
   quantity)
 * add corresponding functions in [tests](https://github.com/maxlath/wikidata-agent/blob/master/server/lib/tests.coffee) and [builders](https://github.com/maxlath/wikidata-agent/blob/master/server/lib/builders.coffee)
 
+## Donate
 
-### See Also
+We are developing and maintaining tools to work with Wikidata from NodeJS, the browser, or simply the command line, with quality and ease of use at heart. Any donation will be interpreted as a "please keep going, your work is very much needed and awesome. PS: love". [Donate](https://liberapay.com/WikidataJS)
 
-#### [wikidata-cli](https://www.npmjs.com/package/wikidata-cli)
-the command-line interface to Wikidata
+## See Also
 
-#### [wikidata-sdk](https://www.npmjs.com/package/wikidata-sdk)
+### [wikidata-sdk](https://github.com/maxlath/wikidata-sdk)
 a javascript tool suite to query and work with wikidata data, heavily used by wikidata-cli
 
-#### [wikidata-filter](https://npmjs.com/package/wikidata-filter)
-a command-line tool to filter a Wikidata dump by claim
+### [wikidata-cli](https://github.com/maxlath/wikidata-cli)
+The command-line interface to Wikidata
 
-#### [wikidata-taxonomy](https://github.com/nichtich/wikidata-taxonomy)
-command-line tool to extract taxonomies from Wikidata
+### [wikidata-filter](https://github.com/maxlath/wikidata-filter)
+A command-line tool to filter a Wikidata dump by claim
+
+### [wikidata-subset-search-engine](https://github.com/inventaire/wikidata-subset-search-engine) Tools to setup an ElasticSearch instance fed with subsets of Wikidata
+
+### [wikidata-taxonomy](https://github.com/nichtich/wikidata-taxonomy)
+Command-line tool to extract taxonomies from Wikidata
+
+### [Other Wikidata external tools](https://www.wikidata.org/wiki/Wikidata:Tools/External_tools)
+
+# License
+[MIT](LICENSE.md)
