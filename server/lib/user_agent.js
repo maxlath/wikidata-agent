@@ -1,8 +1,4 @@
-const fs = require('fs')
-const packageData = fs.readFileSync('./package.json', 'utf-8')
-const { version } = JSON.parse(packageData)
-
-const userAgent = `Wikidata-agent/${version} (https://github.com/maxlath/wikidata-agent)`
-console.log('User-Agent:', userAgent.green)
-
+const { execSync } = require('child_process')
+const lastCommitId = execSync('git rev-parse HEAD').toString().slice(0, 7)
+const userAgent = `Wikidata-agent/${lastCommitId} (https://github.com/maxlath/wikidata-agent)`
 module.exports = userAgent
