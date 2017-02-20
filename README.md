@@ -1,6 +1,6 @@
 # Wikidata Agent
 
-:warning: this project's core is progressively being transfered into [wikidata-edit](https://github.com/maxlath/wikidata-edit) and [wikidata-cli](https://github.com/maxlath/wikidata-cli), and it's gonna be even more awesome there
+:warning: this project's core is progressively being transfered into [wikidata-edit](https://github.com/maxlath/wikidata-edit) and [wikidata-cli](https://github.com/maxlath/wikidata-cli), and it's gonna be even more awesome there. This project will stay relevent if you have a web interface that needs a server to handle CORS and authentification.
 
 ![agent](http://vignette4.wikia.nocookie.net/matrix/images/a/ab/Original_Agents.jpg)
 

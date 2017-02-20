@@ -20,7 +20,7 @@
     "prompt": "^1.0.0",
     "request": "^2.69.0",
     "wikidata-cli": "^4.3.1",
-    "wikidata-sdk": "^2.3.0",
+    "wikidata-edit": "^1.2.0",
     "wikidata-token": "^2.0.2"
   },
   "devDependencies": {
