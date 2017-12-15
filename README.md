@@ -74,7 +74,7 @@ request.post({
 })
 ```
 
-Before creating the claim, it will verify that no existing claim has this value. If a claim already exist, the request will return a 400 error.
+Before creating the claim, it will verify that no existing claim has this value. If such a claim already exists, the request will return a 400 error.
 
 #### With a [reference URL](https://www.wikidata.org/wiki/Property:P854)
 
